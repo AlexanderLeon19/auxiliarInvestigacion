@@ -1,0 +1,39 @@
+<h1>Ver Producto</h1>
+<div *ngIf="producto" class="container-productos">
+    <h2>{{ producto.nombre }}</h2>
+    <div class="ver">
+        <button routerLink="/crear-componente/{{producto._id}}">Crear componente</button>
+        <div *ngIf="producto.componentes && producto.componentes.length > 0">
+            <div class="container">
+                <div *ngFor="let componente of producto.componentes">
+                    <div class="container-datos">
+                        <div class="datos">
+                            <strong>Nombre</strong>
+                            {{ componente.nombre }}
+                            <input *ngIf="componente._id === idComponenteEditar" [(ngModel)]="nombreComponenteEditar"
+                                type="text" placeholder="Nombre del componente">
+                        </div>
+                        <div class="datos">
+                            <strong>Cantidad</strong>
+                            {{ componente.cantidad }}
+                            <input *ngIf="componente._id === idComponenteEditar" [(ngModel)]="cantidadComponenteEditar"
+                                type="number" placeholder="Cantidad del componente">
+                        </div>
+                        <div class="datos">
+                            <strong>Acciones</strong>
+                            <div class="botones">
+                                <button (click)="eliminarComponente(componente._id!)">Eliminar</button>
+                                <button *ngIf="componente._id !== idComponenteEditar"
+                                    (click)="activarEdicionComponente(componente._id!, componente.nombre, componente.cantidad)">Editar</button>
+                                <button *ngIf="componente._id === idComponenteEditar"
+                                    (click)="editarComponente()">Guardar</button>
+                                <button routerLink="/ver-componente/{{producto._id}}/{{componente._id}}">Ver</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button routerLink="/">Regresar</button>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+.container {
+    max-width: 50%;
+}
+
+.container-datos {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.datos {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.botones {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+button {
+    padding: 5px;
+}
+
+strong {
+    padding: 10px;
+}
+
+input {
+    text-align: center;
+    outline: 1px solid yellow;
+    background-color: rgb(255, 255, 112);
+}

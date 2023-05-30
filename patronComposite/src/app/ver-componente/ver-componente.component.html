@@ -1,0 +1,8 @@
+<h1>Ver Componente</h1>
+<div *ngIf="componente" class="container-componentes">
+    <h2>{{ componente.nombre }}</h2>
+    <div class="ver">
+        <button routerLink="/crear-componente-nivel-2/{{productoId}}/{{componente._id}}">Crear componente de nivel 2</button>
+        <button routerLink="/ver-producto/{{productoId}}">Regresar</button>
+    </div>
+</div>

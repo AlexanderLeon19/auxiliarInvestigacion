@@ -1,0 +1,34 @@
+.container{
+    max-width: 30%;
+}
+
+.container-lista{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lista{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.productos-titulo{
+    display: flex;
+    justify-content: center;
+}
+
+.botones{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+button{
+    padding: 5px;
+}
+
+strong{
+    padding: 10px;
+}
