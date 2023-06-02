@@ -1,7 +1,6 @@
 <h1>Productos</h1>
-<h2>Crear productos</h2>
 
-<button routerLink="/crear-producto">Crear</button>
+<button class="btn-crear" mat-raised-button color="primary" routerLink="/crear-producto">Crear</button>
 
 <div class="container">
     <div *ngIf="productos.length > 0">
@@ -9,15 +8,18 @@
             <strong style="font-size: 1.1rem">Productos</strong>
         </div>
         <div *ngFor="let producto of productos; let i = index">
-            <div class="container-lista">
+            <div class="container-lista" mat-list-item>
                 <div class="lista">
                     <p>{{ producto.nombre }}</p>
                 </div>
                 <div class="lista">
                     <div class="botones">
-                        <button (click)="producto._id && eliminarProducto(producto._id)">Eliminar</button>
-                        <button routerLink="/editar-producto/{{producto._id}}">Editar</button>
-                        <button routerLink="/ver-producto/{{producto._id}}">Ver</button>
+                        <button mat-raised-button color="warn"
+                            (click)="producto._id && eliminarProducto(producto._id)">Eliminar</button>
+                        <button mat-raised-button color="accent"
+                            routerLink="/editar-producto/{{producto._id}}">Editar</button>
+                        <button mat-raised-button color="primary"
+                            routerLink="/ver-producto/{{producto._id}}">Ver</button>
                     </div>
                 </div>
             </div>

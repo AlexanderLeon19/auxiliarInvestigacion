@@ -1,4 +1,46 @@
-<h1>Editar Producto</h1>
-<input [(ngModel)]="producto.nombre" type="text" placeholder="Nombre del producto">
-<button (click)="editarProducto()">Guardar cambios</button>
-<button routerLink="/">Regresar</button>
+<h1>Producto</h1>
+<h2>Editar Producto</h2>
+
+<div class="container-datos">
+    <div class="item">
+        <mat-form-field appearance="outline">
+            <mat-label>Nombre del producto</mat-label>
+            <input matInput [(ngModel)]="producto.nombre" placeholder="Nombre del producto">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Tamaño del lote</mat-label>
+            <input matInput [(ngModel)]="producto.tamanoLote" placeholder="Tamaño del lote">
+        </mat-form-field>
+    </div>
+
+    <div class="item">
+        <mat-form-field appearance="outline">
+            <mat-label>Tiempo de suministro</mat-label>
+            <input matInput [(ngModel)]="producto.tiempoSuministro" placeholder="Tiempo de suministro">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Inventario disponible</mat-label>
+            <input matInput [(ngModel)]="producto.inventarioDisponible" placeholder="Inventario disponible">
+        </mat-form-field>
+    </div>
+
+    <div class="item">
+        <mat-form-field appearance="outline">
+            <mat-label>Inventario de seguridad</mat-label>
+            <input matInput [(ngModel)]="producto.inventarioSeguridad" placeholder="Inventario de seguridad">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Recepciones programadas</mat-label>
+            <input matInput [(ngModel)]="producto.recepcionesProgramadas" placeholder="Recepciones programadas">
+        </mat-form-field>
+    </div>
+</div>
+
+<div class="agregarProducto">
+    <button (click)="editarProducto()" mat-raised-button color="primary">Guardar cambios</button>
+</div>
+
+<button routerLink="/" mat-stroked-button color="accent">Regresar</button>

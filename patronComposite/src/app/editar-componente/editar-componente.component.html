@@ -1,51 +1,51 @@
 <h1>Componente</h1>
-<h2>Crear componente</h2>
+<h2>Editar componente</h2>
 
 <div class="container-datos">
     <div class="item">
         <mat-form-field appearance="outline">
             <mat-label>Nombre del componente</mat-label>
-            <input matInput [(ngModel)]="nombreComponente" placeholder="Nombre del componente">
+            <input matInput [(ngModel)]="componente.nombre" placeholder="Nombre del componente">
         </mat-form-field>
 
         <mat-form-field appearance="outline">
             <mat-label>Cantidad</mat-label>
-            <input matInput [(ngModel)]="cantidadComponente" placeholder="Cantidad">
+            <input matInput [(ngModel)]="componente.cantidad" placeholder="Cantidad">
         </mat-form-field>
     </div>
 
     <div class="item">
         <mat-form-field appearance="outline">
             <mat-label>Tamaño del lote</mat-label>
-            <input matInput [(ngModel)]="tamanoLote" placeholder="Tamaño del Lote">
+            <input matInput [(ngModel)]="componente.tamanoLote" placeholder="Tamaño del Lote">
         </mat-form-field>
 
         <mat-form-field appearance="outline">
             <mat-label>Tiempo de suministro</mat-label>
-            <input matInput [(ngModel)]="tiempoSuministro" placeholder="Tiempo de Suministro">
+            <input matInput [(ngModel)]="componente.tiempoSuministro" placeholder="Tiempo de Suministro">
         </mat-form-field>
 
         <mat-form-field appearance="outline">
             <mat-label>Inventario disponible</mat-label>
-            <input matInput [(ngModel)]="inventarioDisponible" placeholder="Inventario Disponible">
+            <input matInput [(ngModel)]="componente.inventarioDisponible" placeholder="Inventario Disponible">
         </mat-form-field>
     </div>
 
     <div class="item">
         <mat-form-field appearance="outline">
             <mat-label>Inventario de seguridad</mat-label>
-            <input matInput [(ngModel)]="inventarioSeguridad" placeholder="Inventario de Seguridad">
+            <input matInput [(ngModel)]="componente.inventarioSeguridad" placeholder="Inventario de Seguridad">
         </mat-form-field>
 
         <mat-form-field appearance="outline">
             <mat-label>Recepciones programadas</mat-label>
-            <input matInput [(ngModel)]="recepcionesProgramadas" placeholder="Recepciones Programadas">
+            <input matInput [(ngModel)]="componente.recepcionesProgramadas" placeholder="Recepciones Programadas">
         </mat-form-field>
     </div>
 </div>
 
 <div class="agregarProducto">
-    <button (click)="crearComponente()" mat-raised-button color="primary">Crear componente</button>
+    <button (click)="editarComponente()" mat-raised-button color="primary">Guardar cambios</button>
 </div>
 
 <button (click)="regresar()" mat-stroked-button color="accent">Regresar</button>

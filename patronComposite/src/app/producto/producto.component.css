@@ -1,19 +1,22 @@
 .container{
-    max-width: 30%;
+    max-width: 40%;
 }
 
 .container-lista{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin:3% 0 3% 5%;
 }
 
-.lista{
+.lista {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-}
-
+  }
+  
 .productos-titulo{
     display: flex;
     justify-content: center;
@@ -25,10 +28,23 @@
     align-items: center;
 }
 
-button{
-    padding: 5px;
+.btn-crear{
+    margin: 5px;
 }
 
+p{
+    font-size: 1rem;
+}
 strong{
     padding: 10px;
+}
+
+h1{
+    font-size: 3rem;
+    margin-top: 20px;
+    text-align: center;
+}
+
+h2{
+    margin: 10px;
 }

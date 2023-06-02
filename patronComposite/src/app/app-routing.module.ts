@@ -6,16 +6,19 @@ import { EditarProductoComponent } from './editar-producto/editar-producto.compo
 import { VerProductoComponent } from './ver-producto/ver-producto.component';
 import { CrearComponenteComponent } from './crear-componente/crear-componente.component';
 import { VerComponenteComponent } from './ver-componente/ver-componente.component';
+import { EditarComponenteComponent } from './editar-componente/editar-componente.component';
 
 const routes: Routes = [
   { path: '', component: ProductoComponent },
   { path: 'crear-producto', component: CrearProductoComponent },
   { path: 'editar-producto/:id', component: EditarProductoComponent },
   { path: 'ver-producto/:id', component: VerProductoComponent },
-  {path : 'crear-componente/:id', component: CrearComponenteComponent },
   { path: 'ver-componente/:productoId/:componenteId', component: VerComponenteComponent },
+  { path: 'crear-componente/:productoId', component: CrearComponenteComponent },
+  { path: 'crear-componente/:productoId/:componenteId', component: CrearComponenteComponent },
+  { path: 'crear-componente/:productoId/:path', component: CrearComponenteComponent },
+  { path: 'editar-componente/:productoId/:componenteId', component: EditarComponenteComponent },
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

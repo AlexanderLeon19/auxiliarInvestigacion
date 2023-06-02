@@ -9,7 +9,16 @@ import { Producto } from '../producto';
   styleUrls: ['./ver-producto.component.css']
 })
 export class VerProductoComponent implements OnInit {
-  producto: Producto = { nombre: '', componentes: [] };
+  producto: Producto = { 
+    nombre: '', 
+    componentes: [],
+    tamanoLote: '',
+    tiempoSuministro: 0,
+    inventarioDisponible: 0,
+    inventarioSeguridad: 0,
+    recepcionesProgramadas: 0
+  };
+  
   idComponenteEditar: string = '';
   nombreComponenteEditar: string = '';
   cantidadComponenteEditar: number = 0;
@@ -41,21 +50,5 @@ export class VerProductoComponent implements OnInit {
       console.error("El ID del producto no está definido");
     }
   }
-
-  activarEdicionComponente(id: string, nombre: string, cantidad: number): void {
-    this.idComponenteEditar = id;
-    this.nombreComponenteEditar = nombre;
-    this.cantidadComponenteEditar = cantidad;
-  }
-
-  editarComponente(): void {
-    if (this.producto._id) {
-      this.productoService.editarComponente(this.producto._id, this.idComponenteEditar, { nombre: this.nombreComponenteEditar, cantidad: this.cantidadComponenteEditar })
-        .subscribe(producto => {
-          this.producto = producto;
-          this.idComponenteEditar = '';
-        });
-    }
-    
-  }
+  
 }

@@ -2,15 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductoService } from '../producto.service';
 import { Componente } from '../producto';
+
 @Component({
   selector: 'app-ver-componente',
   templateUrl: './ver-componente.component.html',
   styleUrls: ['./ver-componente.component.css']
 })
+
 export class VerComponenteComponent implements OnInit {
   productoId: string = '';
   componenteId: string = '';
-  componente: Componente = { nombre: '', cantidad: 0 };
+  componente: Componente = { 
+    nombre: '', 
+    cantidad: 0,
+    componentes: [],
+    tamanoLote: '',
+    tiempoSuministro: 0,
+    inventarioDisponible: 0,
+    inventarioSeguridad: 0,
+    recepcionesProgramadas: 0
+  };
 
   constructor(private route: ActivatedRoute, private productoService: ProductoService) {
     this.productoId = this.route.snapshot.paramMap.get('productoId')!;
@@ -33,4 +44,9 @@ export class VerComponenteComponent implements OnInit {
       }
     });
   }
+  
+  
+  
+  // Puedes agregar funciones similares para la edición de componentes aquí.
+  
 }

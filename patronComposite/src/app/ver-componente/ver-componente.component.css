@@ -1,0 +1,72 @@
+
+* {
+    margin: 5px;
+}
+
+.container {
+    max-width: 50%;
+}
+
+.container-datos {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.datos {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.botones {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    padding: 5px;
+}
+
+strong {
+    padding: 10px;
+}
+
+input {
+    text-align: center;
+    outline: 1px solid yellow;
+    background-color: rgb(255, 255, 112);
+}
+
+.ver-componente{
+    display: flex;
+    align-items: center;
+}
+
+.mat-list-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.list-label {
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-top: 20px;
+    text-align: center;
+}
+
+h2 {
+    margin: 10px;
+    font-size: 2rem;
+}
+
+p{
+    font-size: 1.1rem;
+}

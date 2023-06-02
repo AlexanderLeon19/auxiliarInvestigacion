@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Producto } from './producto';
+import { Producto, Componente } from './producto';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -38,24 +40,34 @@ export class ProductoService {
     return this.http.get<Producto>(url);
   }
 
-  agregarComponente(id: string, componente: { nombre: string, cantidad: number }): Observable<Producto> {
-    const url = `${this.productosUrl}/${id}/componentes`;
+  agregarComponente(idProducto: string, componente: any): Observable<Producto> {
+    const url = `${this.productosUrl}/${idProducto}/componentes`;
     return this.http.post<Producto>(url, componente);
   }
-  
+
+  agregarComponenteNivel2(idProducto: string, idComponente: string, componente: any): Observable<Producto> {
+    const url = `${this.productosUrl}/${idProducto}/componentes/${idComponente}/componentes`;
+    return this.http.post<Producto>(url, componente);
+  }
+
   eliminarComponente(id: string, componenteId: string): Observable<Producto> {
     const url = `${this.productosUrl}/${id}/componentes/${componenteId}`;
-    return this.http.delete<Producto>(url);
-  }  
-  
-  editarComponente(id: string, componenteId: string, componente: { nombre: string, cantidad: number }): Observable<Producto> {
-    const url = `${this.productosUrl}/${id}/componentes/${componenteId}`;
+    return this.http.delete<Producto>(url).pipe(
+      catchError((error) => {
+        console.error(`Error al eliminar componente: ${error.message}`);
+        return throwError(error);
+      })
+    );
+  }
+
+  getComponente(idProducto: string, idComponente: string): Observable<Componente> {
+    const url = `${this.productosUrl}/${idProducto}/componentes/${idComponente}`;
+    return this.http.get<Componente>(url);
+  }
+
+  editarComponente(idProducto: string, idComponente: string, componente: any): Observable<Producto> {
+    const url = `${this.productosUrl}/${idProducto}/componentes/${idComponente}`;
     return this.http.put<Producto>(url, componente);
   }
-  
-  agregarComponenteNivel2(id: string, componenteId: string, componente: { nombre: string, cantidad: number }): Observable<Producto> {
-    const url = `${this.productosUrl}/${id}/componentes/${componenteId}/componentes`;
-    return this.http.post<Producto>(url, componente);
-  }
-  
+
 }

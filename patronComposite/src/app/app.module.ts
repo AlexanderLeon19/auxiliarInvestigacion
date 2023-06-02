@@ -10,6 +10,18 @@ import { EditarProductoComponent } from './editar-producto/editar-producto.compo
 import { VerProductoComponent } from './ver-producto/ver-producto.component';
 import { CrearComponenteComponent } from './crear-componente/crear-componente.component';
 import { VerComponenteComponent } from './ver-componente/ver-componente.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { EditarComponenteComponent } from './editar-componente/editar-componente.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
+
 
 @NgModule({
   declarations: [
@@ -19,13 +31,22 @@ import { VerComponenteComponent } from './ver-componente/ver-componente.componen
     EditarProductoComponent,
     VerProductoComponent,
     CrearComponenteComponent,
-    VerComponenteComponent
+    VerComponenteComponent,
+    EditarComponenteComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonToggleModule,
+    MatListModule,
+    MatIconModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

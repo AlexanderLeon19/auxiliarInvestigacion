@@ -1,39 +1,81 @@
 <h1>Ver Producto</h1>
 <div *ngIf="producto" class="container-productos">
     <h2>{{ producto.nombre }}</h2>
+    <mat-list>
+        <mat-list-item>
+            <div class="ver-producto">
+                <mat-icon class="list-icon">layers</mat-icon>
+                <span class="list-label">Tamaño del Lote:</span>
+                <span class="list-value">{{ producto.tamanoLote }}</span>
+            </div>
+        </mat-list-item>
+
+        <mat-list-item>
+            <div class="ver-producto">
+                <mat-icon class="list-icon">schedule</mat-icon>
+                <span class="list-label">Tiempo de Suministro:</span>
+                <span class="list-value">{{ producto.tiempoSuministro }}</span>
+            </div>
+        </mat-list-item>
+
+        <mat-list-item>
+            <div class="ver-producto">
+                <mat-icon class="list-icon">inventory</mat-icon>
+                <span class="list-label">Inventario Disponible:</span>
+                <span class="list-value">{{ producto.inventarioDisponible }}</span>
+            </div>
+        </mat-list-item>
+
+        <mat-list-item>
+            <div class="ver-producto">
+                <mat-icon class="list-icon">security</mat-icon>
+                <span class="list-label">Inventario de Seguridad:</span>
+                <span class="list-value">{{ producto.inventarioSeguridad }}</span>
+            </div>
+        </mat-list-item>
+        
+        <mat-list-item>
+            <div class="ver-producto">
+                <mat-icon class="list-icon">calendar_today</mat-icon>
+                <span class="list-label">Recepciones Programadas:</span>
+                <span class="list-value">{{ producto.recepcionesProgramadas }}</span>
+            </div>
+        </mat-list-item>
+    </mat-list>
+
     <div class="ver">
-        <button routerLink="/crear-componente/{{producto._id}}">Crear componente</button>
-        <div *ngIf="producto.componentes && producto.componentes.length > 0">
-            <div class="container">
-                <div *ngFor="let componente of producto.componentes">
-                    <div class="container-datos">
-                        <div class="datos">
-                            <strong>Nombre</strong>
-                            {{ componente.nombre }}
-                            <input *ngIf="componente._id === idComponenteEditar" [(ngModel)]="nombreComponenteEditar"
-                                type="text" placeholder="Nombre del componente">
-                        </div>
-                        <div class="datos">
-                            <strong>Cantidad</strong>
-                            {{ componente.cantidad }}
-                            <input *ngIf="componente._id === idComponenteEditar" [(ngModel)]="cantidadComponenteEditar"
-                                type="number" placeholder="Cantidad del componente">
-                        </div>
-                        <div class="datos">
-                            <strong>Acciones</strong>
-                            <div class="botones">
-                                <button (click)="eliminarComponente(componente._id!)">Eliminar</button>
-                                <button *ngIf="componente._id !== idComponenteEditar"
-                                    (click)="activarEdicionComponente(componente._id!, componente.nombre, componente.cantidad)">Editar</button>
-                                <button *ngIf="componente._id === idComponenteEditar"
-                                    (click)="editarComponente()">Guardar</button>
-                                <button routerLink="/ver-componente/{{producto._id}}/{{componente._id}}">Ver</button>
-                            </div>
-                        </div>
+        <button routerLink="/crear-componente/{{producto._id}}" mat-raised-button color="primary">Crear
+            componente</button>
+        <div *ngIf="producto.componentes && producto.componentes.length > 0" class="container">
+            <div *ngFor="let componente of producto.componentes" class="container-datos">
+                <div class="datos">
+                    <strong>Nombre</strong>
+                    <div class="botones">
+                        <p>{{ componente.nombre }}</p>
+                    </div>
+                    <input *ngIf="componente._id === idComponenteEditar" [(ngModel)]="nombreComponenteEditar" matInput
+                        placeholder="Nombre del componente">
+                </div>
+                <div class="datos">
+                    <strong>Cantidad</strong>
+                    <div class="botones">
+                        <p>{{ componente.cantidad }}</p>
+                    </div>
+                    <input *ngIf="componente._id === idComponenteEditar" [(ngModel)]="cantidadComponenteEditar" matInput
+                        type="number" placeholder="Cantidad del componente">
+                </div>
+                <div class="datos">
+                    <strong>Acciones</strong>
+                    <div class="botones">
+                        <button (click)="eliminarComponente(componente._id!)" mat-stroked-button
+                            color="warn">Eliminar</button>
+                            <button routerLink="/editar-componente/{{producto._id}}/{{componente._id}}" mat-stroked-button color="accent">Editar</button>
+                        <button routerLink="/ver-componente/{{producto._id}}/{{componente._id}}" mat-stroked-button
+                            color="primary">Ver</button>
                     </div>
                 </div>
             </div>
         </div>
-        <button routerLink="/">Regresar</button>
+        <button routerLink="/" mat-stroked-button color="accent">Regresar</button>
     </div>
 </div>

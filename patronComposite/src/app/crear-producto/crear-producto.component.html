@@ -1,6 +1,46 @@
 <h1>Producto</h1>
-<h2>Ingrese el nombre del producto</h2>
+<h2>Crear producto</h2>
 
-<input [(ngModel)]="nombreProducto" type="text" placeholder="Nombre del producto">
-<button (click)="crearProducto()">Ingresar</button>
-<button routerLink="/">Regresar</button>
+<div class="container-datos">
+    <div class="item">
+        <mat-form-field appearance="outline">
+            <mat-label>Nombre del producto</mat-label>
+            <input matInput [(ngModel)]="nombreProducto" placeholder="Nombre del producto">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Tamaño del lote</mat-label>
+            <input matInput [(ngModel)]="tamanoLote" placeholder="Tamaño del lote">
+        </mat-form-field>
+    </div>
+
+    <div class="item">
+        <mat-form-field appearance="outline">
+            <mat-label>Tiempo de suministro</mat-label>
+            <input matInput [(ngModel)]="tiempoSuministro" placeholder="Semanas">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Inventario disponible</mat-label>
+            <input matInput [(ngModel)]="inventarioDisponible" placeholder="Inventario disponible">
+        </mat-form-field>
+    </div>
+
+    <div class="item">
+        <mat-form-field appearance="outline">
+            <mat-label>Inventario de seguridad</mat-label>
+            <input matInput [(ngModel)]="inventarioSeguridad" placeholder="Inventario de seguridad">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Recepciones programadas</mat-label>
+            <input matInput [(ngModel)]="recepcionesProgramadas" placeholder="Recepciones programadas">
+        </mat-form-field>
+    </div>
+</div>
+
+<div class="agregarProducto">
+    <button (click)="crearProducto()" mat-raised-button color="primary">Crear producto</button>
+</div>
+
+<button routerLink="/" mat-stroked-button color="accent">Regresar</button>
