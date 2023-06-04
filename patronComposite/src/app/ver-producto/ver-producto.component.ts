@@ -8,6 +8,7 @@ import { Producto } from '../producto';
   templateUrl: './ver-producto.component.html',
   styleUrls: ['./ver-producto.component.css']
 })
+
 export class VerProductoComponent implements OnInit {
   producto: Producto = { 
     nombre: '', 
@@ -19,10 +20,6 @@ export class VerProductoComponent implements OnInit {
     recepcionesProgramadas: 0
   };
   
-  idComponenteEditar: string = '';
-  nombreComponenteEditar: string = '';
-  cantidadComponenteEditar: number = 0;
-
   constructor(
     private route: ActivatedRoute,
     private productoService: ProductoService
@@ -50,5 +47,4 @@ export class VerProductoComponent implements OnInit {
       console.error("El ID del producto no está definido");
     }
   }
-  
 }

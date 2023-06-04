@@ -9,7 +9,6 @@ export interface Producto {
     recepcionesProgramadas: number;
 }
 
-
 export interface Componente {
     _id?: string;
     nombre: string;

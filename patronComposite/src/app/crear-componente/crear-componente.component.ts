@@ -12,6 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class CrearComponenteComponent {
   productoId: string;
   componenteId?: string;
+  componenteNivel2Id?: string; // nuevo
   nombreComponente: string = '';
   cantidadComponente: number = 0;
 
@@ -24,6 +25,7 @@ export class CrearComponenteComponent {
   constructor(private route: ActivatedRoute, private productoService: ProductoService, private router: Router, private snackBar: MatSnackBar) {
     this.productoId = this.route.snapshot.paramMap.get('productoId')!;
     this.componenteId = this.route.snapshot.paramMap.get('componenteId')!;
+    this.componenteNivel2Id = this.route.snapshot.paramMap.get('componenteNivel2Id')!; // nuevo
   }
 
   crearComponente(): void {
@@ -36,28 +38,26 @@ export class CrearComponenteComponent {
       inventarioSeguridad: this.inventarioSeguridad,
       recepcionesProgramadas: this.recepcionesProgramadas
     };
-    if (this.componenteId) {
+    if (this.componenteNivel2Id) {
+      // Si existe un componenteNivel2Id, creamos un componente de tercer nivel
+      this.productoService.agregarComponenteNivel3(this.productoId, this.componenteId!, this.componenteNivel2Id, nuevoComponente).subscribe(producto => {
+        this.limpiarFormulario();
+        this.snackBar.open('¡Componente de tercer nivel creado exitosamente!', 'Cerrar', {
+          duration: 3000
+        });
+      });
+    } else if (this.componenteId) {
+      // Si existe un componenteId, creamos un componente de segundo nivel
       this.productoService.agregarComponenteNivel2(this.productoId, this.componenteId, nuevoComponente).subscribe(producto => {
-        this.nombreComponente = '';
-        this.cantidadComponente = 0;
-        this.tamanoLote = '';
-        this.tiempoSuministro = 0;
-        this.inventarioDisponible = 0;
-        this.inventarioSeguridad = 0;
-        this.recepcionesProgramadas = 0;
+        this.limpiarFormulario();
         this.snackBar.open('¡Componente de segundo nivel creado exitosamente!', 'Cerrar', {
           duration: 3000
         });
       });
     } else {
+      // Si no existe un componenteId, creamos un componente de primer nivel
       this.productoService.agregarComponente(this.productoId, nuevoComponente).subscribe(producto => {
-        this.nombreComponente = '';
-        this.cantidadComponente = 0;
-        this.tamanoLote = '';
-        this.tiempoSuministro = 0;
-        this.inventarioDisponible = 0;
-        this.inventarioSeguridad = 0;
-        this.recepcionesProgramadas = 0;
+        this.limpiarFormulario();
         this.snackBar.open('¡Componente creado exitosamente!', 'Cerrar', {
           duration: 3000
         });
@@ -65,14 +65,26 @@ export class CrearComponenteComponent {
     }
   }
 
+  limpiarFormulario(): void {
+    this.nombreComponente = '';
+    this.cantidadComponente = 0;
+    this.tamanoLote = '';
+    this.tiempoSuministro = 0;
+    this.inventarioDisponible = 0;
+    this.inventarioSeguridad = 0;
+    this.recepcionesProgramadas = 0;
+  }
+
   regresar(): void {
-    if (this.componenteId) {
-      // Si existe un componenteId, entonces regresamos al componente
+    if (this.componenteNivel2Id) {
+      // Si existe un componenteNivel2Id, entonces regresamos al componente de nivel 2
+      this.router.navigate(['/ver-componente', this.productoId, this.componenteId, this.componenteNivel2Id]);
+    } else if (this.componenteId) {
+      // Si existe un componenteId, entonces regresamos al componente de primer nivel
       this.router.navigate(['/ver-componente', this.productoId, this.componenteId]);
     } else {
       // Si no existe un componenteId, entonces regresamos al producto
       this.router.navigate(['/ver-producto', this.productoId]);
     }
   }
-
 }

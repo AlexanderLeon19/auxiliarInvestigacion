@@ -14,10 +14,16 @@ const routes: Routes = [
   { path: 'editar-producto/:id', component: EditarProductoComponent },
   { path: 'ver-producto/:id', component: VerProductoComponent },
   { path: 'ver-componente/:productoId/:componenteId', component: VerComponenteComponent },
+  { path: 'editar-componente/:productoId/:componenteId', component: EditarComponenteComponent },
+  { path: 'editar-componente/:productoId/:componenteId/:componenteNivel2Id', component: EditarComponenteComponent },
+  { path: 'editar-componente/:productoId/:componenteId/:componenteNivel2Id/:componenteNivel3Id', component: EditarComponenteComponent },
+  { path: 'ver-componente/:productoId/:componenteId/:componenteNivel2Id', component: VerComponenteComponent },
+  { path: 'ver-componente/:productoId/:componenteId/:componenteNivel2Id/:componenteNivel3Id', component: VerComponenteComponent },
+  { path: 'editar-componente/:productoId/:componenteId/:componenteNivel2Id/:componenteNivel3Id', component: EditarComponenteComponent },
   { path: 'crear-componente/:productoId', component: CrearComponenteComponent },
   { path: 'crear-componente/:productoId/:componenteId', component: CrearComponenteComponent },
-  { path: 'crear-componente/:productoId/:path', component: CrearComponenteComponent },
-  { path: 'editar-componente/:productoId/:componenteId', component: EditarComponenteComponent },
+  { path: 'crear-componente/:productoId/:componenteId/:componenteNivel2Id', component: CrearComponenteComponent },
+  
 ];
 
 @NgModule({

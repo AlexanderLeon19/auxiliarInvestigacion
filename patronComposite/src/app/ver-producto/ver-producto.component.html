@@ -33,7 +33,7 @@
                 <span class="list-value">{{ producto.inventarioSeguridad }}</span>
             </div>
         </mat-list-item>
-        
+
         <mat-list-item>
             <div class="ver-producto">
                 <mat-icon class="list-icon">calendar_today</mat-icon>
@@ -43,39 +43,35 @@
         </mat-list-item>
     </mat-list>
 
-    <div class="ver">
-        <button routerLink="/crear-componente/{{producto._id}}" mat-raised-button color="primary">Crear
-            componente</button>
-        <div *ngIf="producto.componentes && producto.componentes.length > 0" class="container">
-            <div *ngFor="let componente of producto.componentes" class="container-datos">
-                <div class="datos">
-                    <strong>Nombre</strong>
-                    <div class="botones">
-                        <p>{{ componente.nombre }}</p>
-                    </div>
-                    <input *ngIf="componente._id === idComponenteEditar" [(ngModel)]="nombreComponenteEditar" matInput
-                        placeholder="Nombre del componente">
+    <button routerLink="/crear-componente/{{producto._id}}" mat-raised-button color="primary">Crear
+        componente</button>
+        
+    <div *ngIf="producto.componentes && producto.componentes.length > 0" class="container">
+        <div *ngFor="let componente of producto.componentes" class="container-datos">
+            <div class="datos">
+                <strong>Nombre</strong>
+                <div class="botones">
+                    <p>{{ componente.nombre }}</p>
                 </div>
-                <div class="datos">
-                    <strong>Cantidad</strong>
-                    <div class="botones">
-                        <p>{{ componente.cantidad }}</p>
-                    </div>
-                    <input *ngIf="componente._id === idComponenteEditar" [(ngModel)]="cantidadComponenteEditar" matInput
-                        type="number" placeholder="Cantidad del componente">
+            </div>
+            <div class="datos">
+                <strong>Cantidad</strong>
+                <div class="botones">
+                    <p>{{ componente.cantidad }}</p>
                 </div>
-                <div class="datos">
-                    <strong>Acciones</strong>
-                    <div class="botones">
-                        <button (click)="eliminarComponente(componente._id!)" mat-stroked-button
-                            color="warn">Eliminar</button>
-                            <button routerLink="/editar-componente/{{producto._id}}/{{componente._id}}" mat-stroked-button color="accent">Editar</button>
-                        <button routerLink="/ver-componente/{{producto._id}}/{{componente._id}}" mat-stroked-button
-                            color="primary">Ver</button>
-                    </div>
+            </div>
+            <div class="datos">
+                <strong>Acciones</strong>
+                <div class="botones">
+                    <button (click)="eliminarComponente(componente._id!)" mat-stroked-button
+                        color="warn">Eliminar</button>
+                    <button routerLink="/editar-componente/{{producto._id}}/{{componente._id}}" mat-stroked-button
+                        color="accent">Editar</button>
+                    <button routerLink="/ver-componente/{{producto._id}}/{{componente._id}}" mat-stroked-button
+                        color="primary">Ver</button>
                 </div>
             </div>
         </div>
-        <button routerLink="/" mat-stroked-button color="accent">Regresar</button>
     </div>
+    <button id="regresar" routerLink="/" mat-stroked-button color="accent">Regresar</button>
 </div>

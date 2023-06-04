@@ -1,5 +1,5 @@
 .container{
-    max-width: 40%;
+    max-width: 50%;
 }
 
 .container-lista{
@@ -37,6 +37,7 @@ p{
 }
 strong{
     padding: 10px;
+    font-size: 1rem;
 }
 
 h1{
