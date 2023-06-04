@@ -9,10 +9,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './crear-componente.component.html',
   styleUrls: ['./crear-componente.component.css']
 })
+
 export class CrearComponenteComponent {
   productoId: string;
-  componenteId?: string;
-  componenteNivel2Id?: string; // nuevo
+  componenteId: string;
+  componenteNivel2Id?: string;
+
   nombreComponente: string = '';
   cantidadComponente: number = 0;
 
@@ -25,7 +27,7 @@ export class CrearComponenteComponent {
   constructor(private route: ActivatedRoute, private productoService: ProductoService, private router: Router, private snackBar: MatSnackBar) {
     this.productoId = this.route.snapshot.paramMap.get('productoId')!;
     this.componenteId = this.route.snapshot.paramMap.get('componenteId')!;
-    this.componenteNivel2Id = this.route.snapshot.paramMap.get('componenteNivel2Id')!; // nuevo
+    this.componenteNivel2Id = this.route.snapshot.paramMap.get('componenteNivel2Id')!;
   }
 
   crearComponente(): void {
@@ -40,7 +42,7 @@ export class CrearComponenteComponent {
     };
     if (this.componenteNivel2Id) {
       // Si existe un componenteNivel2Id, creamos un componente de tercer nivel
-      this.productoService.agregarComponenteNivel3(this.productoId, this.componenteId!, this.componenteNivel2Id, nuevoComponente).subscribe(producto => {
+      this.productoService.agregarComponenteNivel3(this.productoId, this.componenteId, this.componenteNivel2Id, nuevoComponente).subscribe(producto => {
         this.limpiarFormulario();
         this.snackBar.open('¡Componente de tercer nivel creado exitosamente!', 'Cerrar', {
           duration: 3000
@@ -87,4 +89,6 @@ export class CrearComponenteComponent {
       this.router.navigate(['/ver-producto', this.productoId]);
     }
   }
+
 }
+

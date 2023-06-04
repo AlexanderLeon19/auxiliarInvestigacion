@@ -95,6 +95,7 @@ export class ProductoService {
     return this.http.get<Componente>(url);
   }
 
+    //-------------------------COMPONENTES DE NIVEL 3-------------------------
   agregarComponenteNivel3(idProducto: string, idComponente: string, idComponenteNivel2: string, componente: any): Observable<Producto> {
     const url = `${this.productosUrl}/${idProducto}/componentes/${idComponente}/componentes/${idComponenteNivel2}/componentes`;
     return this.http.post<Producto>(url, componente);

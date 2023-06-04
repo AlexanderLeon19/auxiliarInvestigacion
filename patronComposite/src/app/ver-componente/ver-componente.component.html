@@ -4,7 +4,7 @@
     <mat-list>
         <mat-list-item>
             <div class="ver-componente">
-                <mat-icon class="list-icon">layers</mat-icon>
+                <mat-icon class="list-icon">tag</mat-icon>
                 <span class="list-label">Cantidad:</span>
                 <span class="list-value">{{ componente.cantidad }}</span>
             </div>
@@ -47,12 +47,14 @@
     </mat-list>
 
     <button mat-raised-button color="primary"
-        [routerLink]="'/crear-componente/' + productoId + '/' + componenteNivel2._id">Crear componente</button>
+        [routerLink]="'/crear-componente/' + productoId + '/' + componenteId">Crear nuevo componente</button>
 
+    <mat-divider></mat-divider>
 
     <div *ngIf="componente.componentes && componente.componentes.length > 0 && !componenteNivel2Id">
-        <h3>Componentes de nivel 2:</h3>
+
         <div class="container">
+            <h3>Componentes de nivel 2:</h3>
             <div *ngFor="let componenteNivel2 of componente.componentes" class="container-datos">
                 <div class="datos">
                     <strong>Nombre</strong>
@@ -88,7 +90,7 @@
     <mat-list>
         <mat-list-item>
             <div class="ver-componente">
-                <mat-icon class="list-icon">layers</mat-icon>
+                <mat-icon class="list-icon">tag</mat-icon>
                 <span class="list-label">Cantidad:</span>
                 <span class="list-value">{{ componenteNivel2.cantidad }}</span>
             </div>
@@ -134,11 +136,13 @@
 
         <button mat-raised-button color="primary"
             [routerLink]="['/crear-componente', productoId, componenteId, componenteNivel2._id]">Crear
-            componente</button>
+            nuevo componente</button>
+
+        <mat-divider></mat-divider>
 
         <div *ngIf="componenteNivel2.componentes && componenteNivel2.componentes.length > 0">
-            <h3>Componentes de nivel 3:</h3>
             <div class="container">
+                <h3>Componentes de nivel 3:</h3>
                 <div *ngFor="let componenteNivel3 of componenteNivel2.componentes" class="container-datos">
                     <div class="datos">
                         <strong>Nombre</strong>
@@ -168,7 +172,8 @@
                 </div>
             </div>
         </div>
-        <button mat-stroked-button color="accent" [routerLink]="'/ver-producto/' + productoId">Regresar</button>
+        <button mat-stroked-button color="accent"
+            routerLink="/ver-componente/{{productoId}}/{{componenteId}}">Regresar</button>
     </div>
 </div>
 
@@ -177,7 +182,7 @@
     <mat-list>
         <mat-list-item>
             <div class="ver-componente">
-                <mat-icon class="list-icon">layers</mat-icon>
+                <mat-icon class="list-icon">tag</mat-icon>
                 <span class="list-label">Cantidad:</span>
                 <span class="list-value">{{ componenteNivel3.cantidad }}</span>
             </div>
@@ -218,5 +223,6 @@
             </div>
         </mat-list-item>
     </mat-list>
-    <button mat-stroked-button color="accent" [routerLink]="'/ver-producto/' + productoId">Regresar</button>
+    <button mat-stroked-button color="accent"
+        routerLink="/ver-componente/{{productoId}}/{{componenteId}}/{{componenteNivel2Id}}">Regresar</button>
 </div>

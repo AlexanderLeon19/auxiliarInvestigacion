@@ -44,9 +44,12 @@
     </mat-list>
 
     <button routerLink="/crear-componente/{{producto._id}}" mat-raised-button color="primary">Crear
-        componente</button>
-        
+        nuevo componente</button>
+
+    <mat-divider></mat-divider>
+    
     <div *ngIf="producto.componentes && producto.componentes.length > 0" class="container">
+        <h3>Componentes de nivel 1:</h3>
         <div *ngFor="let componente of producto.componentes" class="container-datos">
             <div class="datos">
                 <strong>Nombre</strong>

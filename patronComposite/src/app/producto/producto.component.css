@@ -1,12 +1,14 @@
-.container{
+.container {
     max-width: 50%;
+margin: auto;
+
 }
 
-.container-lista{
+.container-lista {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin:3% 0 3% 5%;
+    margin: 3% 5% 3% 5%;
 }
 
 .lista {
@@ -15,37 +17,42 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-  }
-  
-.productos-titulo{
+}
+
+.productos-titulo {
     display: flex;
     justify-content: center;
 }
 
-.botones{
+.botones {
     display: flex;
     gap: 10px;
     align-items: center;
 }
 
-.btn-crear{
-    margin: 5px;
+.btn-crear {
+    margin: 1% 0 1% 3%;
 }
 
-p{
+p {
     font-size: 1rem;
 }
-strong{
+
+strong {
     padding: 10px;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
-h1{
+h1 {
     font-size: 3rem;
-    margin-top: 20px;
+    margin-top: 40px;
     text-align: center;
 }
 
-h2{
+h2 {
     margin: 10px;
+}
+
+button{
+    padding: 5px;
 }

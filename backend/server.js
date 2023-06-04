@@ -113,16 +113,20 @@ app.post('/productos/:idProducto/componentes/:idComponente/componentes', async (
   if (!producto) {
     return res.status(404).send();
   }
-
-  const componente = producto.componentes.id(req.params.idComponente);
-  if (!componente) {
+  
+  // Buscar el componente de primer nivel.
+  const componenteNivel1 = producto.componentes.id(req.params.idComponente);
+  if (!componenteNivel1) {
     return res.status(404).send();
   }
 
-  componente.componentes.push(req.body);
+  // Añadir el componente de segundo nivel.
+  componenteNivel1.componentes.push(req.body);
+
   const productoGuardado = await producto.save();
   res.send(productoGuardado);
 });
+
 
 app.delete('/productos/:productoId/componentes/:componenteId', async (req, res) => {
   const { productoId, componenteId } = req.params;

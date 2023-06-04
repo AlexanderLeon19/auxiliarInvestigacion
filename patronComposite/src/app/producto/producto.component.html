@@ -1,11 +1,11 @@
 <h1>Productos</h1>
 
-<button class="btn-crear" mat-raised-button color="primary" routerLink="/crear-producto">Crear</button>
+<button class="btn-crear" mat-raised-button color="primary" routerLink="/crear-producto">Crear nuevo producto</button>
 
 <div class="container">
     <div *ngIf="productos.length > 0">
         <div class="productos-titulo">
-            <strong style="font-size: 1.1rem">Productos</strong>
+            <strong>Productos</strong>
         </div>
         <div *ngFor="let producto of productos; let i = index">
             <div class="container-lista" mat-list-item>
