@@ -31,7 +31,10 @@ margin: auto;
 }
 
 .btn-crear {
-    margin: 1% 0 1% 3%;
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+    scale: 1.2;
 }
 
 p {
